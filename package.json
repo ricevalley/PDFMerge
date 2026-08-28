@@ -1,0 +1,32 @@
+{
+  "name": "pdfmerge",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "lint:css": "stylelint \"src/*.css\"",
+    "lint:css:fix": "stylelint \"src/*.css\" --fix",
+    "lint:js": "eslint \"src/*.js\"",
+    "lint:js:fix": "eslint \"src/*.js\" --fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.1",
+    "globals": "^17.11.0",
+    "stylelint": "^17.14.1",
+    "stylelint-config-recess-order": "^7.8.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-order": "^8.1.1",
+    "vite": "^8.1.1"
+  },
+  "dependencies": {
+    "@atlaskit/pragmatic-drag-and-drop": "^3.0.0",
+    "@atlaskit/pragmatic-drag-and-drop-auto-scroll": "^3.1.0",
+    "@atlaskit/pragmatic-drag-and-drop-hitbox": "^2.1.0",
+    "lit-html": "^3.3.3",
+    "pdf-lib": "^1.17.1"
+  }
+}

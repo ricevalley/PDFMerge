@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PDFMerge</title>
+	<link rel="stylesheet" type="text/css" href="/fontawesome/fontawesome.all.min.css">
+	<link rel="stylesheet" type="text/css" href="./src/PDFMerge.css">
+</head>
+<body>
+
+	<div class="hidden" id="completeOverlay">
+		<i class="fa-regular fa-circle-check"></i>
+	</div>
+
+	<div id="loadingOverlay" class="hidden">
+		<div class="loading-dots">
+			<div class="dot" style="--i: 0"></div>
+			<div class="dot" style="--i: 1;"></div>
+			<div class="dot" style="--i: 2;"></div>
+		</div>
+	</div>
+
+	<dialog id="errorDialog">
+		<p id="dialogTitle">
+			<i class="fa-solid fa-circle-exclamation"></i>
+			<span></span>
+		</p>
+		<p id="dialogDescription"></p>
+		<textarea id="dialogErrorLog" name="errorlog" readonly></textarea>
+		<button class="dialog-close-btn">OK</button>
+	</dialog>
+
+	<header>
+		<p class="header-title">PDFMerge</p>
+	</header>
+
+	<main>
+
+		<div class="pdf-drop-zone">
+			<div class="pdf-drop-container">
+				<div class="drop-placeholder">
+					<p>Click or</p>
+					<p>
+						Drop files here!
+						<i class="fa-solid fa-file-arrow-up"></i>
+					</p>
+				</div>
+				<div class="file-item-list"></div>
+				<input id="fileSelector" type="file" name="file" accept="application/pdf" multiple>
+			</div>
+		</div>
+
+		<div id="metaEditorForm">
+			<p>Metadata</p>
+			<div class="meta-field">
+				<p>Title</p><span>：</span>
+				<input type="text" name="title">
+			</div>
+			<div class="meta-field">
+				<p>Author</p><span>：</span>
+				<input type="text" name="author">
+			</div>
+			<div class="meta-field">
+				<p>Subject</p><span>：</span>
+				<input type="text" name="subject">
+			</div>
+			<div class="meta-field">
+				<p>Keywords</p><span>：</span>
+				<input type="text" name="keywords">
+			</div>
+			<div class="meta-field">
+				<p>Producer</p><span>：</span>
+				<input type="text" name="producer">
+			</div>
+			<div class="meta-field">
+				<p>Creator</p><span>：</span>
+				<input type="text" name="creator">
+			</div>
+			<div class="meta-field">
+				<p>CreationDate</p><span>：</span>
+				<div class="datetime-picker-group">
+					<label class="datetime-field">
+						<span></span>
+						<input type="datetime-local" name="creationDate">
+					</label>
+					<label class="use-current-time-toggle">
+						<span>Now</span>
+						<input type="checkbox" name="isCurrentTime" checked>
+						<span class="custom-checkbox-ui"></span>
+					</label>
+				</div>
+			</div>
+			<div class="meta-field">
+				<p>ModificationDate</p><span>：</span>
+				<div class="datetime-picker-group">
+					<label class="datetime-field">
+						<span></span>
+						<input type="datetime-local" name="modificationDate">
+					</label>
+					<label class="use-current-time-toggle">
+						<span>Now</span>
+						<input type="checkbox" name="isCurrentTime" checked>
+						<span class="custom-checkbox-ui"></span>
+					</label>
+				</div>
+			</div>
+			<button id="metaClearBtn">clear</button>
+		</div>
+
+		<div class="action-panel">
+			<p id="pageCountDisplay">PageCount：<span>−</span></p>
+			<button id="mergeBtn">
+				<span>Merge</span>
+				<i class="fa-solid fa-file-pdf"></i>
+			</button>
+		</div>
+
+	</main>
+
+	<footer>
+		<p class="copyright">© 2026 terra</p>
+	</footer>
+
+	<script src="./src/PDFMerge.js" type="module"></script>
+</body>
+</html>
